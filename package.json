@@ -1,13 +1,20 @@
 {
   "name": "ngbootstrap-starter",
   "version": "0.0.0",
+  "main": "electron/electron-starter.js",
+  "homepage": "./",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "ng-start": "ng serve",
+    "ng-build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron": "electron .",
+    "electron-start": "node electron/electron-wait-angular",
+    "electron-build": "electron-packager ./ AngularElectron --platform=win32 --arch=x64 --overwrite",
+    "start": "nf start -p 4200",
+    "build": "yarn ng-build && yarn electron-build"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +27,7 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^3.2.0",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
@@ -33,6 +41,9 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "electron": "^2.0.8",
+    "electron-packager": "^12.1.1",
+    "foreman": "^3.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
